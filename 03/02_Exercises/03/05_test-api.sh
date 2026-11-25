@@ -3,34 +3,30 @@
 # Change CRLF (Windows) to LF (Unix on AWS) in your Editor
 #
 # Set variable PARAMS
-#??
+PARAMS='01_params.sh'
 # check if PARAMS is set else exit
-#??
-#??
-#??
-#??
+if [ ! -f $PARAMS ]; then
+    echo $PARAMS does not exist!
+    exit 1
+fi
 # import PARAMS
-#??
+source $PARAMS
 # Set variable MOD to node_modules
-#??
+MOD='node_modules'
 # Check if node_modules exists
-#??
+if [ ! -d $MOD ]; then
     # If not then set variable file to package.json
-#??
+    pkg='package.json'
     # Check if package.json exists
-#??
+    if [ ! -f $pkg ]; then
       # exist if not
-#??
-#??
-#??
+      echo $pkg does not exist!
+      exit 1
+    fi
       # else install dependencies
-#??
-#??
-#??
-#??
-#??
-  exit 0
-#??
+    echo "install dependencies ..."
+    npm install
+fi
 
 echo "test api of container $container"
-#??
+npm test
