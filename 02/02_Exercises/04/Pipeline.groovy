@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/<user>/trafficlight.git'
+                    url: 'https://github.com/im24a-mendolag/trafficlight.git'
             }
         }
         stage('Install') {
